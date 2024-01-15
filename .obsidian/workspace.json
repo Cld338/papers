@@ -1,0 +1,164 @@
+{
+  "main": {
+    "id": "176b6a768c77a1cf",
+    "type": "split",
+    "children": [
+      {
+        "id": "f0e59cde40d6645e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "291e46c145ed3332",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9c9b781b26cd0a18",
+    "type": "split",
+    "children": [
+      {
+        "id": "9c6260090bedec7e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "061f24d7a0a740b3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b1211d850e5b41f2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a474653ac3a8d487",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "57d84733a31a0366",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9917c8cd22f65942",
+    "type": "split",
+    "children": [
+      {
+        "id": "dc874a102fb5ef39",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1b39c951052fc909",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f73cb6d7fe44a605",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "8724b11f2c0048d6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "5bb46ddae90012b5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:퀵 스위처 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 데일리 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "obsidian-to-anki-plugin:Obsidian_to_Anki - Scan Vault": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "291e46c145ed3332",
+  "lastOpenFiles": [
+    "Welcome.md",
+    "Words.md",
+    "papers/AI/Deep contextualized word representations.md",
+    "Templates/paper.md",
+    "Templates",
+    "Spaces/Home",
+    "Spaces",
+    "AI/Deep contextualized word representations.md",
+    "AI/용어 사전.md",
+    "AI"
+  ]
+}

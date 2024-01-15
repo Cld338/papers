@@ -1,0 +1,11 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "sa": "date",
+    "Created": "date",
+    "Creation Date": "date",
+    "완료 여부": "checkbox"
+  }
+}
