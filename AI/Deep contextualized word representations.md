@@ -66,4 +66,4 @@ $$\mathrm{ELMo}_{k}^{task}=E(R_{k};\Theta^task)=\gamma^{task} \sum_{j=0}^{L} s_{
 ## 3.4 Pre-trained bidirectional language model architecture
 &emsp;이 논문에서 사용된 사전 학습된 biLM은 Jozefowicz et al. (2016) 및 Kim et al. (2015)과 유사하지만, 양방향의 합동 훈련을 위해 수정되었고 LSTM 레이어 사이에 residual connection을 추가하였습니다. 우리는 이 연구에서 Peters et al. (2017)이 정방향 LM과 대규모 학습에서 biLM을 사용하는 것의 중요성을 강조하였듯이, 대규모 biLM에 집중하였습니다.
 
-&emsp;문자 기반 입력 representation을 유지할 때, 전체적인 모델의 복잡성과 모델의 크기, 다운스트림 task를 위해 요구되는 계산의 균형을 맞추기 위해 우리는 Jozefowicz et al. (2016)의 CNN-BIG-LSTM에서 모든 임베딩 및  히든 레이어의 차원을 절반으로 줄였습니다. 최종 모델은 4096의 unit과 512개의 차원 투영 그리고 첫 번째와 두 번째 레이어 사이에 residual connection을 가진 $L=2$ biLSTM입니다. 문맥에 무관한 
+&emsp;문자 기반 입력 representation을 유지할 때, 전체적인 모델의 복잡성과 모델의 크기, 다운스트림 task를 위해 요구되는 계산의 균형을 맞추기 위해 우리는 Jozefowicz et al. (2016)의 CNN-BIG-LSTM에서 모든 임베딩 및  히든 레이어의 차원을 절반으로 줄였습니다. 최종 모델은 4096의 unit과 512개의 차원 투영 그리고 첫 번째와 두 번째 레이어 사이에 residual connection을 가진 $L=2$ biLSTM입니다. c
