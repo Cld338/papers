@@ -1,12 +1,20 @@
 ---
+Created: 2024-01-10
+Last Modified: 2024-01-20
 tags:
   - NLP
-Created: 2024-01-10
-Creation Date: 2024-01-10
-Last Modified: 2024-01-15
 DOI: "\rhttps://doi.org/10.48550/arXiv.1802.05365"
 완료 여부: false
 ---
+```text-progress-bar
+progress:: 3.5/8
+fill:🟩
+transition:🟨
+empty:◻️
+prefix:[
+suffix:]
+length:10
+```
 ## Abstract
 &emsp;단어의 복잡한 특성(e.g, 문법 의미)와 이들이 언어적 맥락에 따라 어떻게 사용되는 지(i.e. 다의어)를 모두 모델링하는 새로운 유형의 깊은 문맥화된 단어 표현을 소개합니다. 우리의 단어 벡터는 대규모 말뭉치를 학습시킨 bidirectional Language Model(이하 biLM)의 내부 상태에 대해 학습된 함수입니다. 우리는 이러한 표현 방식이 다른 기존의 모델들에 도입될 수 있으며 question answering, textual entailment, sentiment analysis를 포함하는 6가지 까다로운 NLP 과제에서 최신 기술들을 현저하게 개선할 수 있음을 보입니다. 또한 우리는 사전 학습 모델의 내부 레이어를 노출시키는 것이 다운스트림 모델이 다양한 유형의 준감독 신호를 혼합할 수 있도록 하는 데 중요하다는 분석을 제시합니다.
 ## 1. Introduction
@@ -67,3 +75,69 @@ $$\mathrm{ELMo}_{k}^{task}=E(R_{k};\Theta^task)=\gamma^{task} \sum_{j=0}^{L} s_{
 &emsp;이 논문에서 사용된 사전 학습된 biLM은 Jozefowicz et al. (2016) 및 Kim et al. (2015)과 유사하지만, 양방향의 합동 훈련을 위해 수정되었고 LSTM 레이어 사이에 residual connection을 추가하였습니다. 우리는 이 연구에서 Peters et al. (2017)이 정방향 LM과 대규모 학습에서 biLM을 사용하는 것의 중요성을 강조하였듯이, 대규모 biLM에 집중하였습니다.
 
 &emsp;문자 기반 입력 representation을 유지할 때, 전체적인 모델의 복잡성과 모델의 크기, 다운스트림 task를 위해 요구되는 계산의 균형을 맞추기 위해 우리는 Jozefowicz et al. (2016)의 CNN-BIG-LSTM에서 모든 임베딩 및  히든 레이어의 차원을 절반으로 줄였습니다.<font color="#ff0000"> 최종 모델은 4096의 unit과 512개의 차원 투영 그리고 첫 번째와 두 번째 레이어 사이에 residual connection을 가진 $L=2$ biLSTM입니다.</font> context insensitive type representation은 2048 문자 n-그램 컨볼루션 필터와 두 개의 highway layer (Srivastava et al., 2015) 그리고 512 representation으로의 선형 사영을 사용합니다. 그 결과로, biLM
+
+
+
+
+## References
+[1] Jimmy Ba, Ryan Kiros, and Geoffrey E. Hinton. 2016. Layer normalization. CoRR abs/1607.06450. 
+[2] Yonatan Belinkov, Nadir Durrani, Fahim Dalvi, Hassan Sajjad, and James R. Glass. 2017. What do neural machine translation models learn about morphology? In ACL. 
+[3] Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov. 2017. Enriching word vectors with subword information. TACL 5:135–146. 
+[4] Samuel R. Bowman, Gabor Angeli, Christopher Potts, and Christopher D. Manning. 2015. A large annotated corpus for learning natural language inference. In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (EMNLP). Association for Computational Linguistics. 
+[5] Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, Thorsten Brants, Phillipp Koehn, and Tony Robinson. 2014. One billion word benchmark for measuring progress in statistical language modeling. In INTERSPEECH. 
+[6] Qian Chen, Xiao-Dan Zhu, Zhen-Hua Ling, Si Wei, Hui Jiang, and Diana Inkpen. 2017. Enhanced lstm for natural language inference. In ACL. 
+[7] Jason Chiu and Eric Nichols. 2016. Named entity recognition with bidirectional LSTM-CNNs. In TACL. 
+[8] Kyunghyun Cho, Bart van Merrienboer, Dzmitry Bahdanau, and Yoshua Bengio. 2014. On the properties of neural machine translation: Encoder-decoder approaches. In SSST@EMNLP. 
+[9] Christopher Clark and Matthew Gardner. 2017. Simple and effective multi-paragraph reading comprehension. CoRR abs/1710.10723. 
+[10] Kevin Clark and Christopher D. Manning. 2016. Deep reinforcement learning for mention-ranking coreference models. In EMNLP. 
+[11] Ronan Collobert, Jason Weston, Leon Bottou, Michael ´ Karlen, Koray Kavukcuoglu, and Pavel P. Kuksa. 2011. Natural language processing (almost) from scratch. In JMLR. 
+[12] Andrew M. Dai and Quoc V. Le. 2015. Semisupervised sequence learning. In NIPS. 
+[13]Greg Durrett and Dan Klein. 2013. Easy victories and uphill battles in coreference resolution. In EMNLP. 
+[14] Yarin Gal and Zoubin Ghahramani. 2016. A theoretically grounded application of dropout in recurrent neural networks. In NIPS. 
+[15] Yichen Gong, Heng Luo, and Jian Zhang. 2018. Natural language inference over interaction space. In ICLR. 
+[16] Kazuma Hashimoto, Caiming Xiong, Yoshimasa Tsuruoka, and Richard Socher. 2017. A joint many-task model: Growing a neural network for multiple nlp tasks. In EMNLP 2017. 
+[17] Luheng He, Kenton Lee, Mike Lewis, and Luke S. Zettlemoyer. 2017. Deep semantic role labeling: What works and what’s next. In ACL. 
+[18] Sepp Hochreiter and Jurgen Schmidhuber. 1997. Long ¨ short-term memory. Neural Computation 9. 
+[19] Ignacio Iacobacci, Mohammad Taher Pilehvar, and Roberto Navigli. 2016. Embeddings for word sense disambiguation: An evaluation study. In ACL. 
+[20] Rafal Jozefowicz, Oriol Vinyals, Mike Schuster, Noam ´ Shazeer, and Yonghui Wu. 2016. Exploring the limits of language modeling. CoRR abs/1602.02410. 
+[21] Rafal Jozefowicz, Wojciech Zaremba, and Ilya ´ Sutskever. 2015. An empirical exploration of recurrent network architectures. In ICML. 
+[22] Yoon Kim, Yacine Jernite, David Sontag, and Alexander M Rush. 2015. Character-aware neural language models. In AAAI 2016. 
+[23] Diederik P. Kingma and Jimmy Ba. 2015. Adam: A method for stochastic optimization. In ICLR. 
+[24] Ankit Kumar, Ozan Irsoy, Peter Ondruska, Mohit Iyyer, Ishaan Gulrajani James Bradbury, Victor Zhong, Romain Paulus, and Richard Socher. 2016. Ask me anything: Dynamic memory networks for natural language processing. In ICML.
+[25] John D. Lafferty, Andrew McCallum, and Fernando Pereira. 2001. Conditional random fields: Probabilistic models for segmenting and labeling sequence data. In ICML. 
+[26] Guillaume Lample, Miguel Ballesteros, Sandeep Subramanian, Kazuya Kawakami, and Chris Dyer. 2016. Neural architectures for named entity recognition. In NAACL-HLT. 
+[27] Kenton Lee, Luheng He, Mike Lewis, and Luke S. Zettlemoyer. 2017. End-to-end neural coreference resolution. In EMNLP. 
+[28] Wang Ling, Chris Dyer, Alan W. Black, Isabel Trancoso, Ramon Fermandez, Silvio Amir, Lu´ıs Marujo, and Tiago Lu´ıs. 2015. Finding function in form: Compositional character models for open vocabulary word representation. In EMNLP. 
+[29] Xiaodong Liu, Yelong Shen, Kevin Duh, and Jianfeng Gao. 2017. Stochastic answer networks for machine reading comprehension. arXiv preprint arXiv:1712.03556 . 
+[30] Xuezhe Ma and Eduard H. Hovy. 2016. End-to-end sequence labeling via bi-directional LSTM-CNNsCRF. In ACL. 
+[31] Mitchell P. Marcus, Beatrice Santorini, and Mary Ann Marcinkiewicz. 1993. Building a large annotated corpus of english: The penn treebank. Computational Linguistics 19:313–330. 
+[32] Bryan McCann, James Bradbury, Caiming Xiong, and Richard Socher. 2017. Learned in translation: Contextualized word vectors. In NIPS 2017. 
+[33] Oren Melamud, Jacob Goldberger, and Ido Dagan. 2016. context2vec: Learning generic context embedding with bidirectional lstm. In CoNLL. 
+[34] Gabor Melis, Chris Dyer, and Phil Blunsom. 2017. On ´ the state of the art of evaluation in neural language models. CoRR abs/1707.05589. 
+[35] Stephen Merity, Nitish Shirish Keskar, and Richard Socher. 2017. Regularizing and optimizing lstm language models. CoRR abs/1708.02182. 
+[36] Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. 2013. Distributed representations of words and phrases and their compositionality. In NIPS. 
+[37] George A. Miller, Martin Chodorow, Shari Landes, Claudia Leacock, and Robert G. Thomas. 1994. Using a semantic concordance for sense identification. In HLT. 
+[38 ]Tsendsuren Munkhdalai and Hong Yu. 2017. Neural tree indexers for text understanding. In EACL. 
+[39] Arvind Neelakantan, Jeevan Shankar, Alexandre Passos, and Andrew McCallum. 2014. Efficient nonparametric estimation of multiple embeddings per word in vector space. In EMNLP. 
+[40] Martha Palmer, Paul Kingsbury, and Daniel Gildea. 2005. The proposition bank: An annotated corpus of semantic roles. Computational Linguistics 31:71– 106. 
+[41] Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. Glove: Global vectors for word representation. In EMNLP. 
+[42] Matthew E. Peters, Waleed Ammar, Chandra Bhagavatula, and Russell Power. 2017. Semi-supervised sequence tagging with bidirectional language models. In ACL. 
+[43] Sameer Pradhan, Alessandro Moschitti, Nianwen Xue, Hwee Tou Ng, Anders Bjorkelund, Olga Uryupina, ¨ Yuchen Zhang, and Zhi Zhong. 2013. Towards robust linguistic analysis using ontonotes. In CoNLL. 
+[44] Sameer Pradhan, Alessandro Moschitti, Nianwen Xue, Olga Uryupina, and Yuchen Zhang. 2012. Conll2012 shared task: Modeling multilingual unrestricted coreference in ontonotes. In EMNLPCoNLL Shared Task. 
+[45] Alessandro Raganato, Claudio Delli Bovi, and Roberto Navigli. 2017a. Neural sequence learning models for word sense disambiguation. In EMNLP. 
+[46] Alessandro Raganato, Jose Camacho-Collados, and Roberto Navigli. 2017b. Word sense disambiguation: A unified evaluation framework and empirical comparison. In EACL. 
+[47] Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang. 2016. Squad: 100, 000+ questions for machine comprehension of text. In EMNLP. 
+[48] Prajit Ramachandran, Peter Liu, and Quoc Le. 2017. Improving sequence to sequence learning with unlabeled data. In EMNLP. 
+[49] Erik F. Tjong Kim Sang and Fien De Meulder. 2003. Introduction to the CoNLL-2003 shared task: Language-independent named entity recognition. In CoNLL. 
+[50] Min Joon Seo, Aniruddha Kembhavi, Ali Farhadi, and Hannaneh Hajishirzi. 2017. Bidirectional attention flow for machine comprehension. In ICLR. 
+[51] Richard Socher, Alex Perelygin, Jean Y Wu, Jason Chuang, Christopher D Manning, Andrew Y Ng, and Christopher Potts. 2013. Recursive deep models for semantic compositionality over a sentiment treebank. In EMNLP. 
+[52] Anders Søgaard and Yoav Goldberg. 2016. Deep multi-task learning with low level tasks supervised at lower layers. In ACL 2016. 
+[53] Nitish Srivastava, Geoffrey E. Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. 2014. Dropout: a simple way to prevent neural networks from overfitting. Journal of Machine Learning Research 15:1929–1958. 
+[54] Rupesh Kumar Srivastava, Klaus Greff, and Jurgen ¨ Schmidhuber. 2015. Training very deep networks. In NIPS. 
+[55] Joseph P. Turian, Lev-Arie Ratinov, and Yoshua Bengio. 2010. Word representations: A simple and general method for semi-supervised learning. In ACL. 
+[56] Wenhui Wang, Nan Yang, Furu Wei, Baobao Chang, and Ming Zhou. 2017. Gated self-matching networks for reading comprehension and question answering. In ACL. 
+[57] John Wieting, Mohit Bansal, Kevin Gimpel, and Karen Livescu. 2016. Charagram: Embedding words and sentences via character n-grams. In EMNLP. 
+[58] Sam Wiseman, Alexander M. Rush, and Stuart M. Shieber. 2016. Learning global features for coreference resolution. In HLT-NAACL. 
+[59] Matthew D. Zeiler. 2012. Adadelta: An adaptive learning rate method. CoRR abs/1212.5701. 
+[60] Jie Zhou and Wei Xu. 2015. End-to-end learning of semantic role labeling using recurrent neural networks. In ACL. 
+[61] Peng Zhou, Zhenyu Qi, Suncong Zheng, Jiaming Xu, Hongyun Bao, and Bo Xu. 2016. Text classification improved by integrating bidirectional lstm with twodimensional max pooling. In COLING
